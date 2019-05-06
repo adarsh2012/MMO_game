@@ -5,16 +5,16 @@
   </head>
   <body>
       <div id="body">
-          <div id="enter_div" class="box">
+          <div id="enter_div" class="box p-3 mb-2 bg-light text-dark">
               <form id="Enter_game" action="/play/game" method="POST">
-                  <h2>Enter name:</h2>
-                  <h4>GAME KEYS: WASD</h4>
-                  Game name:<br>
-                  <input type="text" name="username"><br>
-                  <button type="submit">Enter game!</button>
+                  <h2>Enter name</h2>
+                  <h3 style="font-size: 15px;">GAME KEYS: W A S D</h3>
+                  <input type="text" name="username"  maxlength = "15"><br>
+                  <br>
+                  <button type="submit" class="btn btn-primary">Enter game!</button>
               </form> 
           </div>
-        <div id="login_div" class="box">
+        <div id="login_div" class="box p-3 mb-2 bg-light text-dark">
             <% include ./partials/login %>
             <form id="login" action="/req/login" method="POST">
                 <h2>Login here:</h2>
@@ -22,10 +22,11 @@
                 <input type="email" name="email"><br>
                 password:<br>
                 <input type="password" name="password"> <br>
-                <button type="submit">Login</button>
+                <br>
+                <button type="submit" class="btn btn-info">Login</button>
             </form> 
         </div>
-        <div id="Register" class="box">
+        <div id="Register" class="box p-3 mb-2 bg-light text-dark">
              <%if(success_msg == ''){ %>
             <form id="register" action="/req/register" method="POST">
                 <h2>Register:</h2>
@@ -38,7 +39,8 @@
                 <input type="password" name="password"> <br>
                 Confirm password:<br>
                 <input type="password" name="password2"> <br>
-                <button type="submit">Register</button>
+                <br>
+                <button type="submit" class="btn btn-success">Register</button>
             </form> 
             <%} else {%>
                 <h1>Registered</h1>

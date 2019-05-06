@@ -50,7 +50,7 @@ require('./config/passport')(passport);
 
 //health check
 const options = { 
-    url: 'http://192.168.1.92:8000/health', 
+    url: 'https://192.168.1.92/health', 
     headers: { 
     'origin': 'http://192.168.1.92:3000' 
     } 

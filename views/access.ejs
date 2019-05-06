@@ -5,48 +5,49 @@
   </head>
   <body>
       <div id="body">
-          <div id="enter_div" class="box">
+          <div id="enter_div" class="box p-3 mb-2 bg-light text-dark">
               <form id="Enter_game" action="/play/game" method="POST">
-                  <h2>Enter name:</h2>
-                  <h4>GAME KEYS: WASD</h4>
+                  <h2 style="font-family: 'Gugi', cursive;">Enter name:</h2>
+                  <h3 style="font-size: 15px;">GAME KEYS: W A S D</h3>
                   Game name:<br>
                   <input type="text" name="username"><br>
-                  <button type="submit">Enter game!</button>
+                  <br>
+                  <button type="submit"  class="btn btn-primary">Enter game!</button>
               </form> 
               <a href="/req/logout">Logout</a>
           </div>
-        <div id="best_info" class="box">
-          <h1>Best performance</h1>
-          <ul>
+        <div id="best_info" class="box p-3 mb-2 bg-light text-dark">
+          <h1 style="font-family: 'Gugi', cursive;">Best performance</h1>
+          <ul class="list-group list-group-flush">
             <%if(typeof bestrank !="undefined"){%>
-            <li>Highest points: <%= bestpoint%></li>
-            <li>Longest time: <%= besttime%></li>
-            <li>Highest rank: <%= bestrank%></li>
+            <li class="list-group-item">Highest points: <%= bestpoint%></li>
+            <li class="list-group-item">Longest time: <%= besttime%></li>
+            <li class="list-group-item">Highest rank: <%= bestrank%></li>
             <% } else{%>
               <h1>NO BEST DATA</h1>
             <%}%>
           </ul>
         </div>
-        <div id="game_info" class="box">
-            <h1>Overall performance</h1>
-            <ul>
+        <div id="game_info" class="box p-3 mb-2 bg-light text-dark">
+            <h1 style="font-family: 'Gugi', cursive;">Overall performance</h1>
+            <ul class="list-group list-group-flush">
               <%if(typeof avgrank !="undefined"){%>
-              <li>Average points:<%= avgpoint%> </li>
-              <li>Average time:<%= avgtime%> </li>
-              <li>Average rank:<%= avgrank%> </li>
+              <li  class="list-group-item">Average points:<%= avgpoint%> </li>
+              <li  class="list-group-item">Average time:<%= avgtime%> </li>
+              <li  class="list-group-item">Average rank:<%= avgrank%> </li>
               <% } else{%>
                 <h1>NO AVG DATA</h1>
               <%}%>
             </ul>
           </div>
-        <div id="prevGame_info" class="box">
-            <h1>Previous game data</h1>
-            <ul>
+        <div id="prevGame_info" class="box p-3 mb-2 bg-light text-dark">
+            <h1 style="font-family: 'Gugi', cursive;">Previous game data</h1>
+            <ul class="list-group list-group-flush">
                 <%if(typeof rank !="undefined"){%>
-                <li>Points: <%= points%></li>
-                <li>Players eaten: <%= kills%></li>
-                <li>Time lived: <%= time%></li>
-                <li>Rank: <%= rank%></li>
+                <li class="list-group-item">Points: <%= points%></li>
+                <li class="list-group-item">Players eaten: <%= kills%></li>
+                <li class="list-group-item">Time lived: <%= time%></li>
+                <li class="list-group-item">Rank: <%= rank%></li>
                 <% } else{%>
                   <h1>NO DATA</h1>
                 <%}%>
