@@ -1,0 +1,45 @@
+<html>
+  <head>
+      <title>Welcome page!</title>
+      <link rel="stylesheet" type="text/css" href="/CSS/login.css">
+  </head>
+  <body>
+      <div id="body">
+          <div id="enter_div" class="box">
+              <form id="Enter_game" action="/play/game" method="POST">
+                  <h2>Enter name:</h2>
+                  <h4>GAME KEYS: WASD</h4>
+                  Game name:<br>
+                  <input type="text" name="username"><br>
+                  <button type="submit">Enter game!</button>
+              </form> 
+              <a href="/req/logout">Logout</a>
+          </div>
+        <div id="best_info" class="box">
+          <h1>Best performance</h1>
+          <ul>
+            <li>Highest points: </li>
+            <li>Longest time: </li>
+            <li>Highest rank: </li>
+          </ul>
+        </div>
+        <div id="game_info" class="box">
+            <h1>Overall performance</h1>
+            <ul>
+              <li>Average points: </li>
+              <li>Average time: </li>
+              <li>Average rank: </li>
+            </ul>
+          </div>
+        <div id="prevGame_info" class="box">
+            <h1>Previous game data</h1>
+            <ul>
+                <li>Points: </li>
+                <li>Players eaten: </li>
+                <li>Time lived: </li>
+                <li>Top rank: </li>
+            </ul>
+        </div>
+      </div>
+  </body>
+</html>
