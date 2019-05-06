@@ -55,15 +55,9 @@ const options = {
     'origin': 'http://10.66.13.214:3000' 
     } 
     } 
-    
-    
-    
     const sendGET = setInterval(function () { 
-    
-    
     var req = request.post(options, function (res) { 
     console.log('Request send.') 
-    
     }); 
     }, 1000);
     

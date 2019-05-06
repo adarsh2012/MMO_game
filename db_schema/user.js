@@ -16,34 +16,54 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  avgRank: {
-    type: String,
+  //Previous game data
+  prevGamepoint: {
+    type: Number,
     default: 0
   },
-  highestRank: {
-    type: String,
+  prevGamekills: {
+    type: Number,
     default: 0
   },
-  avgPoint: {
-    type: String,
+  prevGametime: {
+    type: Number,
     default: 0
   },
-  highestPoint: {
-    type: String,
+  prevGamerank: {
+    type: Number,
     default: 0
   },
-  avgTime: {
-    type: String,
-    default: 0
-  },
-  highestTime: {
-    type: String,
-    default: 0
-  },
-  count: {
-    type: String,
-    default: 0
-  }
+    //Avg game data
+    avgGamepoint: {
+      type: Number,
+      default: 0
+    },
+    avgGametime: {
+      type: Number,
+      default: 0
+    },
+    avgGamerank: {
+      type: Number,
+      default: 0
+    },
+    //Best game data
+    bestGamepoint: {
+      type: Number,
+      default: 0
+    },
+    bestGametime: {
+      type: Number,
+      default: 0
+    },
+    bestGamerank: {
+      type: Number,
+      default: 0
+    },
+    //game played
+    played: {
+      type: Number,
+      default: 1
+    },
 });
 const User = mongoose.model('User', UserSchema);
 module.exports = User;

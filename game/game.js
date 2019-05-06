@@ -34,9 +34,19 @@ socket.on('rank',function(data){
 });
 socket.on('redirect',function(data){
     var final = performance.now();
-    var joinlist = ["/?rank=", my_rank,"&time=",(final-initial)/1000,"&points=",my_points,"&kills=",my_kills];
-    var final = joinlist.join("");
-    window.location.href = final;
+    // var joinlist = ["/?rank=", my_rank,"&time=",(final-initial)/1000,"&points=",my_points,"&kills=",my_kills];
+    // var final = joinlist.join("");
+    var time  = (final - initial)/1000
+    var time = time.toFixed(1);
+    var form = $('<form action="' + '/' + '" method="post">' +
+    '<input type="text" name="rank" value="' + my_rank + '" />' + 
+    '<input type="text" name="time" value="' + time + '" />' + 
+    '<input type="text" name="points" value="' + my_points + '" />' + 
+    '<input type="text" name="kills" value="' + my_kills + '" />' + 
+  '</form>');
+    $('body').append(form);
+    form.submit();
+    // window.location.href = final;
 });
 
 

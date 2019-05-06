@@ -18,23 +18,31 @@
         <div id="best_info" class="box">
           <h1>Best performance</h1>
           <ul>
-            <li>Highest points: </li>
-            <li>Longest time: </li>
-            <li>Highest rank: </li>
+            <%if(typeof bestrank !="undefined"){%>
+            <li>Highest points: <%= bestpoint%></li>
+            <li>Longest time: <%= besttime%></li>
+            <li>Highest rank: <%= bestrank%></li>
+            <% } else{%>
+              <h1>NO BEST DATA</h1>
+            <%}%>
           </ul>
         </div>
         <div id="game_info" class="box">
             <h1>Overall performance</h1>
             <ul>
-              <li>Average points: </li>
-              <li>Average time: </li>
-              <li>Average rank: </li>
+              <%if(typeof avgrank !="undefined"){%>
+              <li>Average points:<%= avgpoint%> </li>
+              <li>Average time:<%= avgtime%> </li>
+              <li>Average rank:<%= avgrank%> </li>
+              <% } else{%>
+                <h1>NO AVG DATA</h1>
+              <%}%>
             </ul>
           </div>
         <div id="prevGame_info" class="box">
             <h1>Previous game data</h1>
             <ul>
-                <%if(typeof points !="undefined"){%>
+                <%if(typeof rank !="undefined"){%>
                 <li>Points: <%= points%></li>
                 <li>Players eaten: <%= kills%></li>
                 <li>Time lived: <%= time%></li>
