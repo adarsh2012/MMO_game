@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 module.exports = {
     ensureAuthenticated: function(req, res, next) {
       if (req.isAuthenticated()) {

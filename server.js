@@ -9,13 +9,14 @@ const http = require('http');
 const path = require('path');
 const socketIO = require('socket.io');
 const cookieParser = require('cookie-parser'); 
+const request = require('request'); 
 
 //make server
 const app = express();
 const server = http.Server(app);
 const io = socketIO(server);
 app.use('/', express.static(path.join(__dirname)));
-
+    
 //initialize game
 var username;
 var CLIST = ["red","yellow","orange","black"];
@@ -47,6 +48,26 @@ worlds[rname] = new world([]);
 //load passport
 require('./config/passport')(passport);
 
+//health check
+const options = { 
+    url: 'http://10.66.3.127:8000/health', 
+    headers: { 
+    'origin': 'http://10.66.13.214:3000' 
+    } 
+    } 
+    
+    
+    
+    const sendGET = setInterval(function () { 
+    
+    
+    var req = request.post(options, function (res) { 
+    console.log('Request send.') 
+    
+    }); 
+    }, 1000);
+    
+
 //connect to db
 const db = require('./config/keys').mongoURI;
 mongoose
@@ -57,6 +78,7 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+mongoose.set('useFindAndModify', false);
 //EJS layouts and change render engines 
 app.use(expressLayouts);
 app.set('view engine', 'ejs');

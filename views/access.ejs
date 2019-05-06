@@ -34,10 +34,14 @@
         <div id="prevGame_info" class="box">
             <h1>Previous game data</h1>
             <ul>
-                <li>Points: </li>
-                <li>Players eaten: </li>
-                <li>Time lived: </li>
-                <li>Top rank: </li>
+                <%if(typeof points !="undefined"){%>
+                <li>Points: <%= points%></li>
+                <li>Players eaten: <%= kills%></li>
+                <li>Time lived: <%= time%></li>
+                <li>Rank: <%= rank%></li>
+                <% } else{%>
+                  <h1>NO DATA</h1>
+                <%}%>
             </ul>
         </div>
       </div>

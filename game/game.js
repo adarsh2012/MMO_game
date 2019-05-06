@@ -1,5 +1,5 @@
 var socket = io();
-var initial = new Date();
+var initial = performance.now();
 var final;
 var ranklist = [];
 var players_pos = [];
@@ -8,13 +8,13 @@ var world;
 var size_canvas;
 var canvas;
 var ctx;
+var my_rank;
+var my_points;
+var my_kills;
 //loadDB
 //const User = require('../db_schema/gameData.js');
 
-socket.on('redirect',function(data){
-    console.log(world);
-    //window.location.href =     data;
-});
+
 socket.on("world", (data) => {
     world = data;
     console.log("You are at",world);
@@ -28,12 +28,15 @@ socket.on("playerInfo", (data) => {
     players_pos = data[world].players;
     points = data[world].points;
     update(players_pos);
-});
+}); 
 socket.on('rank',function(data){
     ranklist = data[world];
 });
 socket.on('redirect',function(data){
-    window.location.href = data;
+    var final = performance.now();
+    var joinlist = ["/?rank=", my_rank,"&time=",(final-initial)/1000,"&points=",my_points,"&kills=",my_kills];
+    var final = joinlist.join("");
+    window.location.href = final;
 });
 
 
@@ -47,7 +50,11 @@ var ctx = canvas.getContext('2d');
 
 function update(player){
     ctx.clearRect(0, 0 , canvas.width, canvas.height);
-    for(var i = 0; i < player.length; i++){      
+    for(var i = 0; i < player.length; i++){ 
+        if(player[i].id == socket.id){
+            my_points = player[i].size;
+            my_kills = player[i].players_killed;
+        }     
         ctx.fillStyle = player[i].color;
         ctx.font = "15px Arial";
         ctx.textAlign = "center"; 
@@ -88,6 +95,7 @@ function ranking(){
             ctx.fillStyle = "red";
             ctx.font = "20px Georgia";
             var i = x+1;
+            my_rank = i;
             ctx.textAlign = "left"; 
             ctx.fillText(i + '.  ' + "YOU" + "  " + ranklist[x].size,20,45 + 30*(5));
         }
