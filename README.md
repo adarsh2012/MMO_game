@@ -1,2 +1,6 @@
-# MMO_game
-2nd Semester (YEAR 2) Group 4 project
+# GeekGames (Server code) 
+When cloned/downloaded, run the following commond:
+
+```
+node server.js
+```
