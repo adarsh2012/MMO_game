@@ -50,9 +50,9 @@ require('./config/passport')(passport);
 
 //health check
 const options = { 
-    url: 'https://192.168.1.92/health', 
+    url: '<loadLB_ip>', 
     headers: { 
-    'origin': 'http://192.168.1.92:3000' 
+    'origin': '<my_ip>' 
     } 
     } 
     const sendGET = setInterval(function () { 
