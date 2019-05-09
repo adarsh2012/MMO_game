@@ -22,3 +22,12 @@ const options = {
     }, 1000);
     
 ```
+
+In 
+```
+config/keys.js
+```
+make sure to change <atlasusername> and <password> to your atlas username and password
+```
+dbPassword = 'mongodb+srv://<atlasusername>:<password>@cluster0-o8nhq.mongodb.net/test?retryWrites=true';
+```
