@@ -49,6 +49,12 @@ worlds[rname] = new world([]);
 require('./config/passport')(passport);
 
 //health check
+const register = {
+    url: '<loadLB_ip>',
+    headers : {
+        'origin' : '<my_ip>'
+    }
+}
 const options = { 
     url: '<loadLB_ip>', 
     headers: { 
@@ -113,8 +119,8 @@ app.use('/req', require('./routes/req.js'));
 
 
 //Start listen
-server.listen(3000, () => {
-    console.log("Listening to port 3000");
+server.listen(3002, () => {
+    console.log("Listening to port 3002");
 });
 
 io.on('connection', function(socket){
